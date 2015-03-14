@@ -9,6 +9,7 @@ Reverse the beats, segments, tatums, bars, and sections of a track.
 Originally created by Robert Ochshorn on 2008-06-11.  Refactored by
 Joshua Lifton 2008-09-07.
 
+reverseQuantum.py
 Modified by Joe Paxton
 16 Feb 2015
 """
@@ -17,25 +18,25 @@ import echonest.remix.audio as audio
 
 usage = """
 Usage: 
-    python reverse.py <beats|segments|tatums|bars|sections> <inputFilename> <outputFilename.mp3>
+    python reverseQuanta.py <beats|segments|tatums|bars|sections> <inputFilename.mp3> <outputFilename.mp3>
 
 Example:
-    python reverse.py beats YouCanCallMeAl.mp3 AlMeCallCanYou.mp3
+    python reverseQuanta.py beats YouCanCallMeAl.mp3 AlMeCallCanYou.mp3
 """
 
 def main(toReverse, inputFilename, outputFilename):
     audioFile = audio.LocalAudioFile(inputFilename)
-    if toReverse == 'beats' :
+    if toReverse == 'beats':
         chunks = audioFile.analysis.beats
     elif toReverse == 'segments':
-        chunks = audioFile.analysis.segments
+		chunks = audioFile.analysis.segments
     elif toReverse == 'tatums':
 		chunks = audioFile.analysis.tatums
-    elif toReverse == 'bars'    :
+    elif toReverse == 'bars':
 		chunks = audioFile.analysis.bars
-    elif toReverse == 'sections' :
+    elif toReverse == 'sections':
 		chunks = audioFile.analysis.sections
-    else :
+    else:
         print usage
         return
     chunks.reverse()
