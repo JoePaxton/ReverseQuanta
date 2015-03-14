@@ -21,21 +21,24 @@ Usage:
     python reverseQuanta.py <beats|segments|tatums|bars|sections> <inputFilename.mp3> <outputFilename.mp3>
 
 Example:
-    python reverseQuanta.py beats YouCanCallMeAl.mp3 AlMeCallCanYou.mp3
+    python reverseQuanta.py bars Sober.mp3 soberReverse.py
 """
 
+"""Make sure the indentation is correct, the text editor 
+I am using is very frustrating when it comes to indentation.
+"""
 def main(toReverse, inputFilename, outputFilename):
     audioFile = audio.LocalAudioFile(inputFilename)
     if toReverse == 'beats':
         chunks = audioFile.analysis.beats
     elif toReverse == 'segments':
-		chunks = audioFile.analysis.segments
+	chunks = audioFile.analysis.segments
     elif toReverse == 'tatums':
-		chunks = audioFile.analysis.tatums
+	chunks = audioFile.analysis.tatums
     elif toReverse == 'bars':
-		chunks = audioFile.analysis.bars
+	chunks = audioFile.analysis.bars
     elif toReverse == 'sections':
-		chunks = audioFile.analysis.sections
+	chunks = audioFile.analysis.sections
     else:
         print usage
         return
